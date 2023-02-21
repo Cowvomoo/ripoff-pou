@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
 const gilbert = new mongoose.Schema({
+  name: string,
+  password: string,
   hunger: {
     type: int,
     required: true,
@@ -25,6 +27,15 @@ const gilbert = new mongoose.Schema({
     type: int,
     required: true,
     default: 90,
+  },
+
+  inventory: array,
+
+  useItem(name) {
+    item = this.inventory.filter((item) => item.name === name);
+    if (item) {
+      item.use(this._id);
+    }
   },
 });
 
