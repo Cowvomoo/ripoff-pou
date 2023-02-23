@@ -1,35 +1,35 @@
 const mongoose = require('mongoose');
 
 const gilbert = new mongoose.Schema({
-  name: string,
-  password: string,
+  name: String,
+  password: String,
   hunger: {
-    type: int,
+    type: Number,
     required: true,
     default: 50,
   },
   health: {
-    type: string,
+    type: String,
     required: true,
     default: 'not sick :D',
   },
   happiness: {
-    type: int,
+    type: Number,
     required: true,
     default: 90,
   },
   energy: {
-    type: int,
+    type: Number,
     required: true,
     default: 90,
   },
   fun: {
-    type: int,
+    type: Number,
     required: true,
     default: 90,
   },
 
-  inventory: array,
+  inventory: Array,
 
   useItem(name) {
     item = this.inventory.filter((item) => item.name === name);
