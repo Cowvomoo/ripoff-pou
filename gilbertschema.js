@@ -30,13 +30,12 @@ const gilbert = new mongoose.Schema({
   },
 
   inventory: Array,
-
-  useItem(name) {
-    item = this.inventory.filter((item) => item.name === name);
-    if (item) {
-      item.use(this._id);
-    }
-  },
 });
 
+gilbert.methods.useItem = (name) => {
+  item = this.inventory.filter((item) => item.name === name);
+  if (item) {
+    item.use(this._id);
+  }
+};
 module.exports = mongoose.model('Gilbert', gilbert);
